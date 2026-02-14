@@ -41,25 +41,7 @@ npm start
 
 ## Настройка перед первым запуском
 
-### 1. Установка зависимостей
-
-**ВАЖНО:** BAT файлы автоматически проверят и установят зависимости при необходимости.
-
-Или вручную:
-
-Backend:
-```bash
-cd store_backend
-npm install
-```
-
-Frontend:
-```bash
-cd store_for_angular
-npm install
-```
-
-### 2. Настройка MongoDB Atlas
+### 1. Настройка MongoDB Atlas
 
 1. Откройте файл `store_backend\.env`
 2. Замените `<db_password>` на ваш пароль от MongoDB Atlas:
@@ -68,11 +50,35 @@ npm install
 MONGO_URI=mongodb+srv://artem2006pax_db_user:ВАШ_ПАРОЛЬ@cluster0.8ftkocu.mongodb.net/?appName=Cluster0&retryWrites=true&w=majority
 ```
 
-### 3. Запуск миграций (при необходимости)
+### 2. Установка зависимостей и миграций
+
+**Автоматическая установка (РЕКОМЕНДУЕТСЯ):**
 
 ```bash
+# Windows
+install.bat
+
+# Linux/Mac
+./install.sh
+```
+
+Скрипт автоматически:
+- ✓ Установит зависимости Backend
+- ✓ Применит все миграции к базе данных
+- ✓ Установит зависимости Frontend
+
+**Или вручную:**
+
+```bash
+# Backend
 cd store_backend
+npm install
 npx migrate-mongo up
+cd ..
+
+# Frontend
+cd store_for_angular
+npm install
 ```
 
 ## Доступ к приложению

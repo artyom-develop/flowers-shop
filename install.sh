@@ -26,7 +26,7 @@ echo -e "${GREEN}NPM версия: $(npm -v)${NC}"
 echo ""
 
 # Установка зависимостей Backend
-echo -e "${BLUE}[1/2] Установка зависимостей Backend...${NC}"
+echo -e "${BLUE}[1/3] Установка зависимостей Backend...${NC}"
 cd store_backend
 npm install
 if [ $? -ne 0 ]; then
@@ -35,10 +35,30 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 echo -e "${GREEN}✓ Backend зависимости установлены${NC}"
+
+# Проверка .env файла
+if [ ! -f ".env" ]; then
+    echo -e "${RED}[ВНИМАНИЕ] Файл .env не найден!${NC}"
+    echo -e "${BLUE}Создайте .env файл с настройками MongoDB Atlas${NC}"
+    cd ..
+    exit 1
+fi
+
+# Запуск миграций
+echo ""
+echo -e "${BLUE}[2/3] Применение миграций базы данных...${NC}"
+npx migrate-mongo up
+if [ $? -ne 0 ]; then
+    echo -e "${RED}[ОШИБКА] Не удалось применить миграции${NC}"
+    echo -e "${BLUE}Проверьте подключение к MongoDB Atlas в .env файле${NC}"
+    cd ..
+    exit 1
+fi
+echo -e "${GREEN}✓ Миграции успешно применены${NC}"
 cd ..
 
 # Установка зависимостей Frontend
-echo -e "${BLUE}[2/2] Установка зависимостей Frontend...${NC}"
+echo -e "${BLUE}[3/3] Установка зависимостей Frontend...${NC}"
 cd store_for_angular
 npm install
 if [ $? -ne 0 ]; then

@@ -39,7 +39,7 @@ if not exist "store_for_angular" (
 )
 
 REM Установка зависимостей Backend
-echo [1/2] Установка зависимостей Backend...
+echo [1/3] Установка зависимостей Backend...
 cd store_backend
 call npm install
 if errorlevel 1 (
@@ -49,11 +49,33 @@ if errorlevel 1 (
     exit /b 1
 )
 echo [OK] Backend зависимости установлены
+
+REM Проверка .env файла
+if not exist ".env" (
+    echo [ВНИМАНИЕ] Файл .env не найден!
+    echo Создайте .env файл с настройками MongoDB Atlas
+    cd ..
+    pause
+    exit /b 1
+)
+
+REM Запуск миграций
+echo.
+echo [2/3] Применение миграций базы данных...
+call npx migrate-mongo up
+if errorlevel 1 (
+    echo [ОШИБКА] Не удалось применить миграции
+    echo Проверьте подключение к MongoDB Atlas в .env файле
+    cd ..
+    pause
+    exit /b 1
+)
+echo [OK] Миграции успешно применены
 cd ..
 
 REM Установка зависимостей Frontend
 echo.
-echo [2/2] Установка зависимостей Frontend...
+echo [3/3] Установка зависимостей Frontend...
 cd store_for_angular
 call npm install
 if errorlevel 1 (

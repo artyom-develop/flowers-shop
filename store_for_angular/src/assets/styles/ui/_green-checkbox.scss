@@ -1,0 +1,43 @@
+input {
+  width: 14px;
+  height: 14px;
+  min-height: 14px;
+  min-width: 14px;
+  border: 1px solid $second-color;
+  border-radius: 3px;
+
+  &:hover {
+    border-color: #519057;
+  }
+
+  // Скрыть стандартную галку
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: transparent;
+  transition: background-color 0.3s, border-color 0.3s;
+  cursor: pointer;
+  outline: none;
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+
+  // Активный чекбокс (включён)
+  &:checked {
+    border: 1px solid #519057;
+
+    &::after {
+      content: '';
+      background-image: url("/assets/images/check.svg");
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 12px;
+      height: 10px;
+      transform: translate(-50%, -50%);
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+  }
+}

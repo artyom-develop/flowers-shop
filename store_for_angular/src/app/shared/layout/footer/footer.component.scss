@@ -1,0 +1,118 @@
+@import 'src/assets/styles/_variables';
+
+.footer {
+  background: $footer__bg-color;
+
+  .footer-container {
+    padding-top: 39px;
+    padding-bottom: 50px;
+    padding-right: 153px;
+    display: flex;
+    row-gap: 50px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    .footer__block {
+      margin-top: 13px;
+
+      .footer__head {
+        margin-bottom: 25px;
+        font-family: $montserrat-medium;
+        font-size: 16px;
+        color: $second-color;
+      }
+
+
+      &.footer__menu {
+        max-width: 154px;
+        margin-left: 17px;
+      }
+
+      &.footer__category {
+        max-width: 178px;
+        margin-left: 17px;
+      }
+
+      .footer__list {
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+
+        .footer__link {
+          font-family: $montserrat-regular;
+          font-size: 16px;
+          color: $second-color;
+          transition: border-bottom-color 0.5s ease;
+          border-bottom: 2px solid transparent;
+
+          &:hover {
+            border-bottom-color: $second-color;
+          }
+        }
+      }
+
+      &.footer__info {
+        max-width: 237px;
+        margin-left: 120px;
+
+        .footer__head-info {
+          margin-bottom: 15px;
+        }
+
+        .footer__socials {
+          display: flex;
+          column-gap: 12px;
+          align-items: center;
+          margin-bottom: 55px;
+        }
+
+        .footer__payments {
+          display: grid;
+          grid-template-columns: repeat(3, 70px);
+          gap: 10px;
+          padding-left: 4px;
+          padding-right: 3px;
+
+          .footer__payment {
+            border-radius: 3px;
+            height: 35px;
+            background: $white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+      }
+
+      &.footer__contacts {
+        max-width: 253px;
+        margin-left: 63px;
+
+        .footer__contact {
+          &:not(:last-child) {
+            margin-bottom: 15px;
+          }
+
+          .footer__contact-head {
+            margin-bottom: 6px;
+            font-family: $montserrat-medium;
+            font-size: 16px;
+            color: $second-color;
+          }
+
+          .footer__contact-info {
+            font-size: 16px;
+            color: $second-color;
+          }
+        }
+
+
+      }
+
+
+    }
+
+
+  }
+
+}

@@ -1,0 +1,164 @@
+<div class="info">
+  <div class="container container-info">
+    <div class="personal__title">
+      Личный кабинет
+    </div>
+    <div class="personal__pages-selector">
+      <div
+        class="personal__page active"
+        routerLink="/info"
+      >
+        Личные данные
+      </div>
+      <div
+        class="personal__page "
+        routerLink="/orders"
+      >
+        Ваши заказы
+      </div>
+    </div>
+    <div
+      class="order__form"
+      [formGroup]="userInfoForm"
+    >
+
+      <div class="order__personal">
+        <div class="order__personal-title block-title">Личные данные</div>
+        <div class="order__personal-subtitle">
+          Введённые данные автоматически подставятся при оформлении заказа.
+        </div>
+        <div class="order__personal-inputs">
+          <input
+            type="text"
+            class="order__input"
+            placeholder="Фамилия"
+            [style]="{'border-color': userInfoForm.get('lastName')?.invalid && (userInfoForm.get('lastName')?.dirty || userInfoForm.get('lastName')?.touched) ? 'red' : ''}"
+            formControlName="lastName"
+          />
+          <input
+            type="text"
+            class="order__input"
+            placeholder="Имя"
+            formControlName="firstName"
+            [style]="{'border-color': userInfoForm.get('firstName')?.invalid && (userInfoForm.get('firstName')?.dirty || userInfoForm.get('firstName')?.touched) ? 'red' : ''}"
+          />
+          <input
+            type="text"
+            class="order__input"
+            placeholder="Отчество"
+            formControlName="fatherName"
+          />
+          <input
+            type="text"
+            class="order__input"
+            placeholder="Телефон"
+            formControlName="phone"
+            [style]="{'border-color': userInfoForm.get('phone')?.invalid && (userInfoForm.get('phone')?.dirty || userInfoForm.get('phone')?.touched) ? 'red' : ''}"
+          />
+          <input
+            type="text"
+            class="order__input"
+            placeholder="E-mail"
+            formControlName="email"
+            [style]="{'border-color': userInfoForm.get('email')?.invalid && (userInfoForm.get('email')?.dirty || userInfoForm.get('email')?.touched) ? 'red' : ''}"
+          />
+        </div>
+      </div>
+      <div
+        class="order__address"
+      >
+        <div class="order__address-title block-title">Адрес доставки</div>
+        <div class="order__address-inputs">
+          <input
+            type="text"
+            class="order__input street"
+            placeholder="Улица"
+            formControlName="street"
+            [style]="{'border-color': userInfoForm.get('street')?.invalid && (userInfoForm.get('street')?.dirty || userInfoForm.get('street')?.touched) ? 'red' : ''}"
+          />
+          <input
+            type="text"
+            class="order__input hows"
+            placeholder="№ дома"
+            formControlName="house"
+            [style]="{'border-color': userInfoForm.get('house')?.invalid && (userInfoForm.get('house')?.dirty || userInfoForm.get('house')?.touched) ? 'red' : ''}"
+          />
+          <input
+            type="text"
+            class="order__input entrance"
+            placeholder="Подъезд"
+            formControlName="entrance"
+            [style]="{'border-color': userInfoForm.get('entrance')?.invalid && (userInfoForm.get('entrance')?.dirty || userInfoForm.get('entrance')?.touched) ? 'red' : ''}"
+          />
+          <input
+            type="text"
+            class="order__input ap"
+            placeholder="№ квартиры"
+            formControlName="apartment"
+            [style]="{'border-color': userInfoForm.get('apartment')?.invalid && (userInfoForm.get('apartment')?.dirty || userInfoForm.get('apartment')?.touched) ? 'red' : ''}"
+          />
+        </div>
+      </div>
+      <div class="order__delivery">
+        <div class="order__delivery-title block-title">Предпочитаемый способ доставки</div>
+        <div class="order__delivery-actions">
+          <button
+            class="order__delivery-action"
+            (click)="toggleDeliveryType(DeliveryType.delivery)"
+            [class.active]="deliveryType === DeliveryType.delivery"
+          >Курьером
+          </button>
+          <button
+            class="order__delivery-action "
+            (click)="toggleDeliveryType(DeliveryType.self)"
+            [class.active]="deliveryType === DeliveryType.self"
+          >Самовывоз
+          </button>
+        </div>
+      </div>
+      <div class="order__payment">
+        <div class="block-title">Предпочитаемый способ оплаты</div>
+        <div class="order__payment-inputs">
+          <label class="order__payment-input">
+            <input
+              type="radio"
+              value="{{PaymentType.cashToOnline}}"
+              formControlName="paymentType"
+            />
+            <span>Оплата банковской картой в интернет-магазине</span></label>
+          <label class="order__payment-input">
+            <input
+              type="radio"
+              name="paymentType"
+              value="{{PaymentType.cardToCourier}}"
+              formControlName="paymentType"
+            />
+            <span>Безналичный расчет при получении</span></label>
+          <label class="order__payment-input">
+            <input
+              type="radio"
+              name="paymentType"
+              value="{{PaymentType.cashToCourier}}"
+              formControlName="paymentType"
+            />
+            <span>Наличный расчет при получении</span></label>
+        </div>
+      </div>
+      <div class="personal__action">
+        <button
+          class="btn personal__btn"
+          [disabled]="!(userInfoForm.dirty && userInfoForm.valid)"
+          (click)="updateUserInfo()"
+        >
+          Сохранить
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="info__image">
+    <img
+      src="/assets/images/main/big-main.png"
+      alt="Flower"
+    >
+  </div>
+</div>

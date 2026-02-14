@@ -1,0 +1,102 @@
+<div class="cart" *ngIf="cart">
+  <div class="container cart-container">
+    <div class="cart__title">
+      Корзина
+    </div>
+    <div class="cart__empty enhanced-empty" *ngIf="!cart || cart.items.length === 0">
+
+      <div class="empty-text">
+        <span>Ваша корзина пуста</span>
+        <small>Добавьте товары, чтобы оформить заказ</small>
+      </div>
+      <a class="btn btn-accent" routerLink="/catalog">
+        <span>Перейти в каталог</span>
+      </a>
+    </div>
+    <div class="cart__content">
+      <div class="cart__items">
+        <div class="cart__item" *ngFor="let item of cart.items; trackBy:trackByIndex">
+          <div class="cart__img">
+            <img
+              [src]="environment.serverStaticPath + '/images/products/' + item.product.image"
+              [alt]="item.product.name"
+            >
+          </div>
+          <div class="cart__item-text">
+            {{item.product.name}}
+          </div>
+          <counter [count]="item.quantity" (onCountChange)="changeCount(item.product.id, $event)"></counter>
+          <div class="cart__price">{{item.product.price}} BYN</div>
+          <div class="cart__delete" (click)="changeCount(item.product.id, 0)">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_1_1332)">
+                <line
+                  x1="1.93562"
+                  y1="2.6499"
+                  x2="13.9564"
+                  y2="14.6707"
+                  stroke="#A8ABA7"
+                  stroke-linecap="round"
+                />
+                <line
+                  x1="13.9238"
+                  y1="2.62996"
+                  x2="1.90301"
+                  y2="14.6508"
+                  stroke="#A8ABA7"
+                  stroke-linecap="round"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_1_1332">
+                  <rect
+                    width="16"
+                    height="16"
+                    fill="white"
+                  />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="info" *ngIf="cart && cart.items.length > 0">
+        <div class="info-text">
+          <div class="info-title">
+            Ваш заказ
+          </div>
+          <div class="info-text-items">
+            <div class="info__text-item">
+              <span>Товаров:</span>
+              {{totalCount}}
+            </div>
+            <div class="info__text-item">
+              <span>Общая стоимость:</span>
+              {{ totalAmount }} BYN
+            </div>
+          </div>
+
+          <div class="info__subtext">
+            * без учета доставки
+          </div>
+        </div>
+
+        <div class="cart__info-actions">
+          <a routerLink="/catalog" class="btn cart__btn-transparent transparent">
+            Продолжить покупки
+          </a>
+          <a routerLink="/order" class="btn cart__btn">
+            Оформить заказ
+          </a>
+        </div>
+      </div>
+    </div>
+   <product-carousel [title]="'С этими товарами также покупают'" [isShowLight]="true"></product-carousel>
+  </div>
+</div>

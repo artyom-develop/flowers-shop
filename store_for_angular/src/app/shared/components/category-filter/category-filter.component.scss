@@ -1,0 +1,89 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/mixins";
+
+.catalog__filter {
+  border-radius: 5px;
+  font-family: $montserrat-regular;
+  font-size: 16px;
+  color: $base-color;
+
+  .catalog__filter-head {
+    background: $background-category;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 23px;
+    cursor: pointer;
+    border-radius: 5px;
+
+    svg {
+      align-self: end;
+      transition: transform 0.3s ease;
+      transform: rotate(0deg);
+    }
+  }
+
+  &.open {
+    .catalog__filter-head {
+      border-radius: 5px 5px 0 0;
+
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+
+    .catalog__filter-body {
+      display: block;
+    }
+  }
+
+  .catalog__filter-body {
+    display: none;
+    border: 1px solid $background-category;
+    border-radius: 0 0 5px 5px;
+    transition: all 0.3s ease;
+    padding: 12px 23px 12px 16px;
+
+
+    &.from-to{
+      padding: 16px 16px 13px 16px;
+      .catalog__filter-from-to{
+        display: flex;
+        gap: 19px;
+        align-items: center;
+        font-size: 18px;
+        input {
+          @include input-count-number;
+        }
+      }
+    }
+
+    .catalog__filter-checkbox {
+      position: relative;
+      display: flex;
+      align-items: baseline;
+      cursor: pointer;
+
+      &:not(:last-child) {
+        margin-bottom: 19px;
+      }
+
+      input {
+        position: absolute;
+        top: 2px;
+        @include input-checkbox;
+      }
+
+      span {
+        margin-left: 10px;
+      }
+
+    }
+
+
+  }
+
+
+}
+
+

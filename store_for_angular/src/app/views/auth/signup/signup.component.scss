@@ -1,0 +1,59 @@
+.signup {
+  margin-top: 10px;
+
+  .signup-container {
+    padding-right: 275px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .signup__form {
+      max-width: 422px;
+    }
+
+    .signup-checkbox {
+      align-items: start;
+
+      .form__checkbox-signup {
+        width: 30px;
+      }
+    }
+
+    .signup_button {
+      max-width: 422px;
+    }
+
+    .repeat-password {
+      position: relative;
+
+      .eye-repeat {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 20px;
+        cursor: pointer;
+      }
+    }
+
+    .password {
+      position: relative;
+
+      .eye {
+        width: 20px;
+        height: 20px;
+
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 20px;
+        cursor: pointer;
+
+      }
+    }
+  }
+}

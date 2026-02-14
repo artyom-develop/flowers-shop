@@ -1,0 +1,33 @@
+@import "../variables";
+
+input {
+
+  width: 100%;
+  border: 1.50px solid $main-green-color;
+  border-radius: 3px;
+  color: $base-color;
+  outline: none;
+  font-size: 16px;
+  font-family: $montserrat-regular;
+
+
+  &::placeholder {
+    font-size: 16px;
+    font-family: $montserrat-regular;
+    color: $input-color-text;
+  }
+
+  &:-webkit-autofill {
+    background-color: $white !important;
+    color: $base-color !important;
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:active {
+    -webkit-text-fill-color: $base-color !important;
+    transition: background-color 5000s ease-in-out;
+  }
+
+}
+
+

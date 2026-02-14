@@ -1,0 +1,31 @@
+@import "../variables";
+
+// Стилизация ширины и фона скроллбара
+::-webkit-scrollbar {
+  width: 8px; // ширина скроллбара
+  background: $white; // фон трека скроллбара (белый)
+}
+
+// Стилизация ползунка скроллбара
+::-webkit-scrollbar-thumb {
+  background: $arrow-color; // цвет ползунка (серый)
+  border-radius: 4px; // скругление углов
+}
+
+// Стилизация трека скроллбара
+::-webkit-scrollbar-track {
+  background: $white; // цвет трека (белый)
+}
+
+// Стилизация скроллбара для Firefox
+html {
+  scrollbar-color: $arrow-color $white; // thumb (серый) и track (белый)
+  scrollbar-width: thin; // тонкий скроллбар
+}
+
+// Скрытие дефолтных стрелочек (кнопок прокрутки) скроллбара
+::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}

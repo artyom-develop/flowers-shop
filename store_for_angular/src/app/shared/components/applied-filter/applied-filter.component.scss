@@ -1,0 +1,36 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/mixins";
+
+.catalog__applied-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #e7f1e8;
+  border-radius: 50px;
+
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
+
+  span {
+    font-family: $montserrat-regular;
+    font-size: 16px;
+    line-height: 130%;
+    color: $second-color;
+  }
+
+  a{
+    cursor: pointer;
+    svg {
+      cursor: pointer;
+      &:hover{
+
+        line{
+          transition: all .3s ease;
+          fill:red;
+          stroke: red;
+          color:red;
+        }
+      }
+    }
+  }
+}

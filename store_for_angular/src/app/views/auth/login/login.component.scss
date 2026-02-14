@@ -1,0 +1,40 @@
+
+.login {
+  .login-container {
+    padding-right: 131px;
+    padding-left: 100px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    .login__form {
+      max-width: 429px;
+    }
+
+    .login__img {
+      width: 731px;
+      height: 495px;
+    }
+
+    .login_button {
+      max-width: 422px;
+    }
+
+    .password {
+      position: relative;
+
+      .eye {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 20px;
+        cursor: pointer;
+
+      }
+    }
+  }
+
+}

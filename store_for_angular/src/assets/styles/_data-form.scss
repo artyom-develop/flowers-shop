@@ -1,0 +1,176 @@
+@import "variables";
+@import "mixins";
+
+.block-title {
+  font-family: $montserrat-medium;
+  font-size: 16px;
+  color: $second-color;
+  white-space: nowrap;
+  margin-bottom: 20px;
+}
+
+.order__personal-subtitle {
+  font-family: $montserrat-regular;
+  font-size: 16px;
+  color: $second-color;
+  margin-bottom: 20px;
+  max-width: 528px;
+  line-height: 130%;
+}
+
+.order__form {
+
+  .order__input {
+    font-family: $montserrat-regular;
+    font-size: 14px;
+    color: $base-color;
+    border: 1.5px solid #2a592e;
+    border-radius: 3px;
+    padding: 17px 20px 17px 20px;
+    height: 53px;
+
+    &::placeholder {
+      font-family: $montserrat-regular;
+      font-size: 14px;
+      color: #a8aba7;
+    }
+  }
+
+  display: flex;
+  flex-direction: column;
+
+  .order__delivery {
+    margin-bottom: 30px;
+
+    .order__delivery-actions {
+      display: flex;
+      width: 340px;
+      min-width: 340px;
+      outline: none;
+      border: 1px solid #519057;
+      border-radius: 3px;
+
+      .order__delivery-action {
+        font-family: $montserrat-regular;
+        font-size: 18px;
+        text-align: center;
+        cursor: pointer;
+        padding: 13px 35px;
+        transition: all .3s ease;
+        background-color: transparent;
+        color: $second-color;
+        outline: none;
+        border: none;
+
+        &.active {
+          border: none;
+          outline: none;
+          background: #519057;
+          color: $white;
+          transition: all .3s ease;
+        }
+      }
+    }
+  }
+
+  .order__personal {
+    margin-bottom: 30px;
+
+    .order__personal-inputs {
+      display: grid;
+      grid-template-columns: repeat(3, 210px);
+      gap: 8px;
+    }
+  }
+
+  .order__address {
+    margin-bottom: 30px;
+
+    .order__address-title {
+      margin-bottom: 20px;
+    }
+
+    .order__address-inputs {
+      display: grid;
+      grid-template-columns: repeat(2, 125px) 162px;
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas:
+              "street street street"
+              "hows entrance apartment";
+      max-width: 428px;
+      width: 428px;
+      gap: 8px;
+
+      .street {
+        grid-area: street;
+      }
+
+      .hows {
+        grid-area: hows;
+      }
+
+      .entrance {
+        grid-area: entrance;
+      }
+
+      .apartment {
+        grid-area: apartment;
+      }
+    }
+  }
+
+  .order__payment {
+    margin-bottom: 30px;
+
+    .order__payment-title {
+      margin-bottom: 12px;
+    }
+
+    .order__payment-inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      .order__payment-input {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        cursor: pointer;
+
+        span {
+          font-family: $montserrat-regular;
+          font-size: 16px;
+          color: $second-color;
+        }
+      }
+    }
+  }
+
+  .order__comments {
+    .order__comments-title {
+      margin-bottom: 23px;
+    }
+
+    textarea {
+      border: 1.5px solid #2a592e;
+      border-radius: 3px;
+      padding: 20px;
+      width: 646px;
+      height: 130px;
+      max-width: 646px;
+      font-family: $montserrat-regular;
+      font-size: 14px;
+      line-height: 130%;
+      color: $base-color;
+      resize: none;
+      box-shadow: none;
+      outline: none;
+
+      ::placeholder {
+        font-family: $montserrat-regular;
+        font-size: 14px;
+        color: #a8aba7;
+      }
+    }
+  }
+}

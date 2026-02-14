@@ -1,0 +1,30 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="23"
+  height="23"
+  fill="none"
+  viewBox="0 0 23 23"
+>
+  <g class="login">
+    <g class="vuesax/linear/login">
+      <g class="login">
+        <path
+          stroke="#202B21"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+          d="M8.53 7.245c.296-3.45 2.07-4.859 5.95-4.859h.125c4.284 0 6 1.716 6 6v6.248c0 4.284-1.716 5.999-6 5.999h-.125c-3.852 0-5.625-1.39-5.941-4.782M1.916 11.5h12.343"
+          class="Vector"
+        />
+        <path
+          stroke="#202B21"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+          d="m12.123 8.29 3.21 3.21-3.21 3.21"
+          class="Vector"
+        />
+      </g>
+    </g>
+  </g>
+</svg>

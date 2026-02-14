@@ -1,0 +1,127 @@
+<section
+  class="signup"
+  [formGroup]="signUpForm"
+>
+  <div class="container signup-container">
+    <form
+      action=""
+      class="form signup__form"
+    >
+      <div class="form__head">
+        Регистрация на сайте
+      </div>
+      <div
+        class="form__items"
+        passwordRepeat
+      >
+        <div class="form__item">
+          <input
+            type="email"
+            placeholder="Электронная почта"
+            formControlName="email"
+            class="form__input"
+            [ngStyle]="{'border-color': signUpForm.get('email')?.invalid && (signUpForm.get('email')?.touched  || signUpForm.get('email')?.dirty) ? 'red' : '' }"
+          >
+        </div>
+        <div class="form__item password">
+          <input
+            [type]="passwordHide ? 'password' : 'text'"
+            formControlName="password"
+            placeholder="Пароль"
+            class="form__input"
+            [ngStyle]="{'border-color': signUpForm.get('password')?.invalid && (signUpForm.get('password')?.touched  || signUpForm.get('password')?.dirty) ? 'red' : '' }"
+          >
+
+          <img
+            src="/assets/images/auth/eye.svg"
+            alt="eye"
+            class="eye"
+            (click)="passwordHide = !passwordHide"
+            *ngIf="passwordHide"
+          >
+          <img
+            src="/assets/images/auth/close-eye.svg"
+            alt="eye"
+            class="eye"
+            (click)="passwordHide = !passwordHide"
+            *ngIf="!passwordHide"
+          >
+        </div>
+        <div class="form__item repeat-password">
+          <input
+            [type]="repeatHide ? 'password' : 'text'"
+            formControlName="repeatPassword"
+            placeholder="Повторите пароль"
+            class="form__input"
+            [ngStyle]="{'border-color': signUpForm.get('repeatPassword')?.invalid && (signUpForm.get('repeatPassword')?.touched  || signUpForm.get('repeatPassword')?.dirty) ? 'red' : '' }"
+          >
+          <img
+            src="/assets/images/auth/eye.svg"
+            alt="eye"
+            class="eye-repeat"
+            (click)="repeatHide = !repeatHide"
+            *ngIf="repeatHide"
+          >
+          <img
+            src="/assets/images/auth/close-eye.svg"
+            alt="eye"
+            class="eye-repeat"
+            (click)="repeatHide = !repeatHide"
+            *ngIf="!repeatHide"
+          >
+        </div>
+        <div class="form__item checkbox signup-checkbox">
+          <input
+            type="checkbox"
+            class="form__checkbox  form__checkbox-signup"
+            formControlName="rememberMe"
+            id="remember__signup"
+
+          >
+          <label
+            for="remember__signup"
+            class="form__checkbox-label"
+          >
+            Я принимаю
+            <a
+              routerLink="/"
+              class="form__link"
+            >условия пользовательского соглашения
+            </a>
+            и даю
+            <a
+              class="form__link"
+            >согласие на обработку персональных данных
+            </a>
+            .
+          </label>
+        </div>
+      </div>
+      <button
+        class="btn signup_button"
+        type="button"
+        [disabled]="signUpForm.invalid "
+        (click)="signup()"
+      >
+  Зарегистрироваться
+      </button>
+      <div class="form__bottom">
+          <span class="form__bottom-text">
+            Уже есть аккаунт?
+        </span>
+        <a
+          routerLink="/login"
+          class="form__link"
+        >
+          Войдите
+        </a>
+      </div>
+    </form>
+    <div class="signup__img">
+      <img
+        src="/assets/images/auth/signup.png"
+        alt="Растение"
+      >
+    </div>
+  </div>
+</section>

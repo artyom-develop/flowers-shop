@@ -1,0 +1,87 @@
+@import "src/assets/styles/variables";
+
+.offers {
+  background-color: $section-color;
+
+
+  .offers-container {
+    padding: 80px 100px;
+    display: flex;
+    justify-content: center;
+    gap:40px;
+    flex-wrap: wrap;
+
+    .offer {
+      width: 600px;
+      height: 250px;
+      padding: 35px 35px 0 35px;
+      background-color: $white;
+      border-radius: 5px;
+      box-sizing: border-box;
+
+      .offer__title {
+        font-family: $montserrat-regular;
+        font-size: 20px;
+        color: #202b21;
+        line-height: 130%;
+
+      }
+
+      .offer__content {
+        display: flex;
+
+        .offer__text {
+          font-size: 16px;
+          line-height: 130%;
+          font-family: $montserrat-regular;
+          color: $base-color;
+        }
+
+      }
+
+      &.offer-instagram {
+        .offer__img {
+          margin-top: 35px;
+        }
+
+        .offer__text {
+          margin-top: 16px;
+          max-width: 234px;
+          margin-left: 58px;
+        }
+
+        .offer__btn {
+          margin-left: 168px;
+          margin-top: 22px;
+          font-size: 18px;
+
+          .btn {
+            width: 228px;
+          }
+        }
+      }
+
+      &.offer-catalog {
+        .offer__title {
+          max-width: 362px;
+        }
+
+        .offer__img {
+          margin-top: 12px;
+          margin-left: 81px;
+        }
+
+        .offer__btn {
+          margin-top: 75px;
+          margin-left: 44px;
+          font-size: 18px;
+
+          .btn {
+            width: 177px;
+          }
+        }
+      }
+    }
+  }
+}
+

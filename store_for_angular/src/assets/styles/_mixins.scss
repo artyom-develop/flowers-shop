@@ -1,0 +1,166 @@
+@import "variables";
+
+@mixin head-lora-32 {
+  font-family: $lora-regular;
+  font-size: 32px;
+  color: $base-color;
+}
+
+@mixin head-lora-36 {
+  font-family: $lora-regular;
+  font-size: 36px;
+  color: $base-color;
+}
+
+@mixin input-count-number {
+  font-family: $montserrat-regular;
+  font-size: 18px;
+  color: $base-color;
+  min-height: 28px;
+  min-width: 40px;
+  width: 40px;
+  height: 28px;
+  border-radius: 5px;
+  border: 1px solid #6cac72;
+  text-align: center;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+@mixin input-checkbox-unchecked {
+  border: 1.00px solid $second-color;
+  border-radius: 3px;
+  width: 14px;
+  height: 14px;
+}
+
+@mixin input-checkbox {
+
+
+  // Скрыть стандартную галку
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 14px;
+  height: 14px;
+  min-width: 14px;
+  min-height: 14px;
+  border: 1px solid $second-color;
+  border-radius: 3px;
+  background-color: transparent;
+  position: relative;
+  transition:   color 0.3s ease-in;
+  cursor: pointer;
+  outline: none;
+  vertical-align: middle;
+  display: inline-block;
+
+  // Активный чекбокс (включён)
+  &:checked {
+    background-color: $white;
+    border-color: #519057;
+  }
+  &:checked + span , &:checked + label {
+    color: #519057 ;
+  }
+
+  &:checked::after {
+    content: "";
+    background-image: url("/assets/images/check.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    display: block;
+  }
+
+}
+
+
+@mixin flex-row-center-gap($gap) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: $gap;
+}
+
+@mixin flex-col-center-gap($gap) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $gap;
+}
+
+@mixin flex-align-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-between-center {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin custom-max-width($max-width) {
+  @media (max-width: $max-width) {
+    @content;
+  }
+}
+
+
+@mixin custom-min-width($min-width) {
+  @media (max-width: $min-width) {
+    @content;
+  }
+}
+
+
+@mixin desktop {
+  @media (max-width: 1240px) {
+    @content;
+  }
+}
+
+
+@mixin desktop-above {
+  @media (min-width: 1241px) {
+    @content;
+  }
+}
+
+
+@mixin tablet {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tablet-above {
+  @media (min-width: 769px) {
+    @content;
+  }
+}
+
+
+@mixin mobile {
+  @media (max-width: 425px) {
+    @content;
+  }
+}
+
+@mixin mobile-above {
+  @media (min-width: 425px) {
+    @content;
+  }
+}
+

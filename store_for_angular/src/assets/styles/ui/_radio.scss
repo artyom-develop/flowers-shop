@@ -1,0 +1,26 @@
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #2a592e;
+  border-radius: 50%;
+
+  display: grid;
+  place-content: center;
+
+  &::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    box-shadow: inset 8px 8px #2a592e;
+    transition: 0.2s ease transform;
+    transform: scale(0);
+  }
+
+  &:checked::before {
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,43 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/mixins";
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-left: 386px;
+  margin-top: 79px;
+  .pagination__arrow{
+    &.disabled {
+      svg{
+        transition: all .3s ease;
+        opacity: .5;
+        path, line{
+          transition: all .3s ease;
+          opacity: .7;
+        }
+      }
+    }
+  }
+  .pagination__pages {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    .pagination__page {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $base-color;
+      font-family: $montserrat-regular;
+      font-size: 20px;
+      cursor: pointer;
+      &.active {
+        transition: all .3s ease;
+        background: $background-category;
+      }
+    }
+  }
+}

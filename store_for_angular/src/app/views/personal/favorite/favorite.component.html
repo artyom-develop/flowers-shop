@@ -1,0 +1,80 @@
+<div class="favorite">
+  <div class="container favorite-container ">
+    <div class="favorite__title">
+      Избранное
+    </div>
+    <div class="favorite__empty enhanced-empty" *ngIf="!products || products.length === 0">
+
+      <div class="empty-text">
+        <span>Избранное пустое</span>
+        <small>Добавьте товары в избранное, чтобы увидеть их на странице "избранное"</small>
+      </div>
+      <a class="btn btn-accent" routerLink="/catalog">
+        <span>Перейти в каталог</span>
+      </a>
+    </div>
+    <div class="favorite__items">
+      <div class="favorite__item" *ngFor="let product of products; trackBy:trackByIndex">
+
+        <div class="favorite__img">
+          <img
+            [src]="environment.serverStaticPath + '/images/products/' + product.image"
+            [alt]="product.name"
+          >
+
+        </div>
+        <div class="favorite__item-text">
+          {{product.name}}
+        </div>
+        <div class="favorite__price">{{product.price}} BYN</div>
+        <counter [count]="product.quantity ? product.quantity : 1" (onCountChange)="updateCount(product, $event)" #counter></counter>
+
+        <div class="favorite__btn">
+          <button class="btn" *ngIf="!product.quantity" (click)="addToCart(product, counter.count)">В корзину</button>
+          <button class="btn transparent btn-in-cart" *ngIf="product.quantity" (click)="removeFromCart(product, counter.count)">
+            <span>В корзине</span>
+            <span>Удалить</span>
+          </button>
+        </div>
+        <div class="favorite__delete" (click)="removeFavoriteProduct(product.id)">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_1_1332)">
+              <line
+                x1="1.93562"
+                y1="2.6499"
+                x2="13.9564"
+                y2="14.6707"
+                stroke="#A8ABA7"
+                stroke-linecap="round"
+              />
+              <line
+                x1="13.9238"
+                y1="2.62996"
+                x2="1.90301"
+                y2="14.6508"
+                stroke="#A8ABA7"
+                stroke-linecap="round"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_1_1332">
+                <rect
+                  width="16"
+                  height="16"
+                  fill="white"
+                />
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

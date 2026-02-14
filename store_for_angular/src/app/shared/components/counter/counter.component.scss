@@ -1,0 +1,27 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/mixins";
+
+.product__counter {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  .increment {
+    padding-top: 4px;
+    padding-bottom: 5px;
+    padding-left: 8px;
+    cursor: pointer;
+  }
+
+  .decrement {
+    padding-right: 8px;
+    display: flex;
+    align-items: center;
+    padding-top: 4px;
+    padding-bottom: 5px;
+    cursor: pointer;
+  }
+
+  .product__count {
+    @include input-count-number;
+  }
+}

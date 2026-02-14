@@ -1,0 +1,129 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/mixins";
+
+
+.favorite {
+  .favorite-container {
+    padding: 50px 100px 110px 100px;
+
+    .favorite__title {
+      @include head-lora-36;
+      margin-bottom: 35px;
+    }
+
+    .favorite__empty.enhanced-empty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 0;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+
+      .empty-text {
+        text-align: center;
+        margin-bottom: 20px;
+        max-width: 400px;
+
+        span {
+          display: block;
+          color: $base-color;
+          margin-bottom: 6px;
+          font-size: 20px;
+          font-family: $montserrat-medium;
+        }
+
+        small {
+          display: block;
+          font-size: 16px;
+          color: $second-color;
+          font-family: $montserrat-regular;
+        }
+      }
+
+      .btn.btn-accent {
+        font-size: 16px;
+        color: $white;
+        width: 255px;
+        transition: background 0.2s;
+      }
+    }
+
+    .favorite__items {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      .favorite__item {
+        display: flex;
+        justify-content: space-between;
+
+        align-items: center;
+        &:last-child {
+         padding-bottom: 0;
+        }
+        padding-bottom: 15px;
+        box-sizing: border-box;
+        border-bottom: 1px solid #e7f1e8;
+        gap: 20px;
+        .favorite__img {
+          img {
+            width: 100px;
+            height: 100px;
+            border-radius:5px;
+          }
+
+          margin-right: 24px;
+          border-radius: 10px;
+        }
+
+        .favorite__item-text {
+          font-family: $montserrat-regular;
+          font-size: 20px;
+          color: $second-color;
+          width: 440px;
+          max-width: 500px;
+          margin-right: 20px;
+        }
+
+        .favorite__price {
+          margin-right: 40px;
+          font-family: $montserrat-semiBold;
+          font-size: 22px;
+          white-space: nowrap;
+          color: $second-color;
+          max-width: 100px;
+        }
+
+        .favorite__btn {
+          width: 160px;
+          min-width: 160px;
+          font-size: 18px;
+          margin-right: 20px;
+          btn{
+            width: 160px;
+            height: 53px;
+          }
+        }
+
+        svg {
+          &:hover {
+            path {
+              transition: all .3s ease;
+              fill: red;
+              stroke: red;
+            }
+
+            line {
+              transition: all .3s ease;
+              fill: red;
+              stroke: red;
+            }
+          }
+        }
+      }
+
+    }
+  }
+}

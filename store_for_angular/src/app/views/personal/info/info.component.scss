@@ -1,0 +1,50 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/mixins";
+@import "src/assets/styles/data-form";
+
+.info {
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+  .container-info {
+    padding: 50px 25px 128px 100px;
+    .personal__title {
+      @include head-lora-36;
+      margin-bottom: 30px;
+    }
+
+    .personal__pages-selector {
+      margin-bottom: 50px;
+      font-family: $lora-regular;
+      font-size: 26px;
+      color: $base-color;
+      display: flex;
+      align-items: center;
+
+      .personal__page {
+        padding: 13px 15px;
+        border-bottom: 2px solid #B6D5B9;
+        cursor: pointer;
+
+        &.active {
+          border-bottom: 3px solid #519057;
+        }
+      }
+    }
+
+    .personal__action {
+      width: 169px;
+      height: 51px;
+    }
+  }
+
+  .info__image {
+    position: absolute;
+    bottom: 0;
+    right:  calc(50% - 700px);
+    z-index: -1;
+    img{
+      vertical-align:bottom;
+    }
+  }
+}

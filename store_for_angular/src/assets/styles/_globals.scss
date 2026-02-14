@@ -1,0 +1,105 @@
+@import "variables";
+@import "ui/loader";
+
+@import "ui/radio";
+@import "ui/dialog";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: $montserrat-regular;
+  background: $white;
+}
+
+.container {
+  max-width: $container;
+  margin: 0 auto;
+  padding-right: 100px;
+  padding-left: 100px;
+}
+
+.arrow {
+  width: 100%;
+  height: 1px;
+  background: $arrow-color;
+}
+
+a {
+  text-decoration: none;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+  }
+}
+
+ul {
+  list-style: none;
+}
+svg {
+  cursor: pointer;
+}
+
+.logo:hover,
+.logo:focus {
+  text-decoration: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.mat-menu {
+  .mat-menu__item {
+    text-decoration: none !important;
+    font-size: 14px !important;
+    font-family: $montserrat-medium !important;
+    color: $base-color !important;
+  }
+}
+
+.mat-menu-content:not(:empty) {
+  padding: 0 !important;
+}
+
+textarea {
+  // Стилизация скроллбара для textarea
+  &::-webkit-scrollbar {
+    width: 8px;
+    background: $white;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $arrow-color;
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: $white;
+  }
+  &::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
+// Для Firefox
+textarea {
+  scrollbar-color: $arrow-color $white;
+  scrollbar-width: thin;
+}
+/* Отменяем скрытие скролла PrimeNG */
+body.p-overflow-hidden {
+  overflow-y: scroll !important;
+  padding-right: 0 !important;
+}
+
+/* Или полностью отключаем класс */
+body.p-overflow-hidden::before {
+  display: none !important;
+}
+.mat-progress-spinner circle, .mat-spinner circle {
+  stroke: #648f64 !important;
+}

@@ -1,0 +1,178 @@
+<header class="header">
+  <div class="container header-container">
+    <a
+      routerLink="/"
+      class="logo header__logo"
+    >
+      <img
+        src="assets/images/common/logo.webp"
+        alt="Логотип"
+        class="logo__img"
+      >
+    </a>
+    <div class="header__content">
+      <div class="header__top">
+        <nav class="header__menu">
+          <ul class="header__menu-list">
+            <li class="header__menu-item">
+              <a
+                routerLink="/main"
+                class="header__menu-link"
+              >Главная
+              </a>
+
+            </li>
+            <li class="header__menu-item">
+              <a
+                routerLink="/catalog"
+                class="header__menu-link"
+              >Каталог
+              </a>
+            </li>
+            <li class="header__menu-item">
+              <a
+                routerLink="/"
+                fragment="comments"
+                class="header__menu-link"
+              >Отзывы
+              </a>
+            </li>
+            <li class="header__menu-item">
+              <a
+                routerLink="/"
+                fragment="delivery"
+                class="header__menu-link"
+              >Доставка и оплата
+              </a>
+
+            </li>
+          </ul>
+        </nav>
+        <div class="header__info">
+          <a
+            class="header__info-phone"
+            href="tel:  + 375 (29) 918-28-88"
+          >
+            + 375 (29) 918-28-88
+          </a>
+          <div class="header__info-actions">
+
+            <a
+              *ngIf="!isLogged"
+              class="header__info-action"
+              routerLink="/login"
+            >
+              <img
+                src="/assets/images/header/logged/profile.svg"
+                alt="Иконка профиля"
+              >
+            </a>
+
+            <a
+              *ngIf="isLogged"
+              [matMenuTriggerFor]="menu"
+              class="header__info-action"
+
+            >
+
+              <img
+
+                src="/assets/images/header/unlogged/login.svg"
+                alt="Иконка выхода"
+              >
+            </a>
+
+            <mat-menu
+              #menu="matMenu"
+              class="mat-menu"
+            >
+              <a
+                mat-menu-item
+                routerLink="/info"
+                class="mat-menu__item"
+              >Профиль
+              </a>
+
+              <button
+                mat-menu-item
+                (click)="logOut()"
+                class="mat-menu__item"
+              >
+                Выйти
+              </button>
+            </mat-menu>
+            <a
+              routerLink="/favorite"
+              class="header__info-action"
+              *ngIf="isLogged"
+            >
+              <img
+                src="/assets/images/header/like.svg"
+                alt="Иконка понравившиеся"
+              >
+            </a>
+            <a
+              routerLink="/cart"
+              class="header__info-action"
+            >
+              <img
+                src="/assets/images/header/trash.svg"
+                alt="Иконка корзины"
+              >
+              <span class="header__info-count">{{ countProductInCart  |formatCountInCart }}</span>
+            </a>
+
+          </div>
+        </div>
+      </div>
+      <div class="arrow"></div>
+      <div class="header__bottom">
+        <nav class="header__categories">
+          <ul class="header__categories-list">
+            <li
+              class="header__categories-item"
+              *ngFor="let category of categories; trackBy:trackById"
+            >
+              <a
+                [routerLink]="'/catalog'"
+                [queryParams]="{types: category?.typesUrl}"
+                class="header__categories-link"
+              >{{ category.name }}
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="header__search">
+
+          <input
+            class="header__search-input"
+            placeholder="Начните искать"
+            [formControl]="searchField"
+            (blur)="changeShowedSearch(false)"
+            (focus)="changeShowedSearch(true)"
+          >
+
+          <div class="search" *ngIf="showedSearch && products && products.length > 0 ">
+            <div class="search__product"
+            *ngFor="let product of products; trackBy:trackByIndex"
+                 (click)="selectProduct(product.url)"
+            >
+              <div class="search__product-image">
+                <img
+                  [src]="environment.serverStaticPath + '/images/products/' + product.image"
+                  [alt]="product.name"
+                >
+              </div>
+              <div class="search__product-text">
+                {{product.name}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</header>
+

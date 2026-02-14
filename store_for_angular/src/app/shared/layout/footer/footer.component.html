@@ -1,0 +1,169 @@
+<footer class="footer">
+  <div class="container footer-container">
+    <a
+      routerLink="/main"
+      class="logo footer__logo"
+    >
+      <img
+        src="assets/images/common/logo-footer.webp"
+        alt="Логотип"
+        class="logo__img"
+      >
+    </a>
+    <div class="footer__block footer__menu">
+      <div class="footer__head">МЕНЮ</div>
+
+      <nav
+        class="footer__items"
+        aria-label="Главное меню"
+      >
+        <ul class="footer__list">
+          <li class="footer__item">
+            <a
+              routerLink="/main"
+              class="footer__link"
+            >Главная
+            </a>
+          </li>
+          <li class="footer__item">
+            <a
+              routerLink="/catalog"
+              class="footer__link"
+            >Каталог
+            </a>
+          </li>
+          <li class="footer__item">
+            <a
+              routerLink="/"
+              fragment="delivery"
+              class="footer__link"
+
+            >Доставка и оплата
+            </a>
+          </li>
+          <li class="footer__item">
+            <a
+              routerLink="/"
+              class="footer__link"
+              fragment="comments"
+            >Отзывы
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="footer__block footer__category">
+      <div class="footer__head">КАТЕГОРИИ</div>
+      <nav
+        class="footer__items"
+        aria-label="Категории"
+      >
+
+        <ul class="footer__list">
+          <li
+            class="footer__item"
+            *ngFor="let category of categories; trackBy:trackById"
+          >
+            <a
+              [routerLink]="'/catalog'"
+              class="footer__link"
+              [queryParams]="{types: category?.typesUrl}"
+            >{{ category.name }}
+            </a>
+          </li>
+
+        </ul>
+      </nav>
+    </div>
+
+    <div class="footer__block footer__info">
+      <div class="footer__head footer__head-info">МЫ В СОЦИАЛЬНЫХ СЕТЯХ</div>
+      <div
+        class="footer__socials"
+        role="list"
+      >
+        <a routerLink="/">
+          <img
+            src="/assets/images/footer/vk-com.svg"
+            alt="VK"
+            class="footer__socials-item"
+          >
+        </a>
+        <a routerLink="/">
+          <img
+            src="/assets/images/footer/facebook.svg"
+            alt="Facebook"
+            class="footer__socials-item"
+          >
+        </a>
+        <a routerLink="/">
+          <img
+            src="/assets/images/footer/instagram.svg"
+            alt="Instagram"
+            class="footer__socials-item"
+          >
+        </a>
+      </div>
+      <div class="footer__payments">
+        <div class="footer__payment">
+          <img
+            class="footer__payment-icon"
+            src="/assets/images/footer/partners/viza.svg"
+            alt="viza"
+          >
+        </div>
+        <div class="footer__payment">
+          <img
+            class="footer__payment-icon"
+            src="/assets/images/footer/partners/mastercard.svg"
+            alt="mastercard"
+          >
+        </div>
+        <div class="footer__payment">
+          <img
+            class="footer__payment-icon"
+            src="/assets/images/footer/partners/alfa-bank.svg"
+            alt="alfa-bank"
+          >
+        </div>
+        <div class="footer__payment">
+          <img
+            class="footer__payment-icon"
+            src="/assets/images/footer/partners/apple-pay.svg"
+            alt="apple pay"
+          >
+        </div>
+        <div class="footer__payment">
+          <img
+            class="footer__payment-icon"
+            src="/assets/images/footer/partners/samsung-pay.svg"
+            alt="samsung pay"
+          >
+        </div>
+        <div class="footer__payment">
+          <img
+            class="footer__payment-icon"
+            src="/assets/images/footer/partners/belacart.svg"
+            alt="belacart"
+          >
+        </div>
+      </div>
+    </div>
+    <div class="footer__block footer__contacts">
+      <div class="footer__head">КОНТАКТЫ</div>
+      <div class="footer__contact">
+        <div class="footer__contact-head">Адрес</div>
+        <div class="footer__contact-info">г. Минск, ул. Калиновского 61, подъезд 1, офис 6</div>
+      </div>
+      <div class="footer__contact">
+        <div class="footer__contact-head">Телефон</div>
+        <div class="footer__contact-info">+ 375 (29) 922-29-99</div>
+      </div>
+      <div class="footer__contact">
+        <div class="footer__contact-head">E-mail</div>
+        <span class="footer__contact-info">homedecor@gmail.com</span>
+      </div>
+    </div>
+  </div>
+</footer>

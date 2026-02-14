@@ -1,0 +1,70 @@
+<div class="catalog">
+  <div class="container catalog-container">
+    <div class="catalog__title">
+      Каталог
+    </div>
+
+    <div class="catalog__head">
+      <div class="catalog__applied-filters">
+        <applied-filter
+          [appliedFilter]="appliedFilter"
+          [activeParams]="activeParams"
+          *ngFor="let appliedFilter of appliedFilters; trackBy:trackByIndex"
+        ></applied-filter>
+      </div>
+
+     <sorting [activeParams]="activeParams" [sortingOpen]="sortingOpen" ></sorting>
+
+    </div>
+
+    <div class="catalog__layout">
+      <div class="catalog__filters">
+        <category-filter
+          [category]="category"
+          *ngFor="let category of categories; trackBy:trackById"
+        >
+        </category-filter>
+        <category-filter type="height">
+        </category-filter>
+        <category-filter type="diameter">
+        </category-filter>
+      </div>
+      <div
+        class="catalog__products"
+        *ngIf="!loading && this.products.length > 0"
+      >
+
+        <product-card
+          *ngFor="let product of products; trackBy:trackById"
+          [product]="product"
+          [countInCart]="product.countInCart"
+        ></product-card>
+      </div>
+      <div
+        class="catalog__not-found"
+        *ngIf="this.products.length == 0 && !loading"
+      >
+        <span>По вашему фильтру ничего  не найдено</span>
+      </div>
+      <div
+        class="catalog__loader"
+        *ngIf="loading"
+      >
+        <div
+          class="loader"
+          *ngIf="loading"
+        ></div>
+      </div>
+
+
+    </div>
+
+    <pagination
+      [pages]="pages"
+      [activeParams]="this.activeParams"
+    >
+    </pagination>
+
+  </div>
+
+</div>

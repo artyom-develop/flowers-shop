@@ -1,0 +1,66 @@
+@import "../variables";
+
+.btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: $white;
+  font-family: $montserrat-regular;
+  background-color: $button-background;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background-color: $button-hover-background;
+    color: $button-hover-color;
+    &.btn-in-cart span{
+      &:first-child {
+        display: none;
+      }
+      &:last-child {
+        display: block;
+      }
+    }
+  }
+
+  &:disabled {
+    background-color: grey;
+    color: $white;
+    cursor: not-allowed;
+  }
+  &.transparent {
+    background-color: transparent !important;
+    color: $base-color !important;
+    border: 1px solid #6cac72;
+    transition: all .3s ease;
+
+    &:hover {
+      background-color: #B6D5B9 !important;
+      color: $base-color !important;
+      transition: all .3s ease;
+    }
+  }
+  &.btn-in-cart span{
+    &:first-child {
+      display: block;
+    }
+    &:last-child {
+      display: none;
+    }
+  }
+
+}
+
+
+a.button{
+  text-decoration: none;
+  display: inline-block;
+}

@@ -1,0 +1,82 @@
+@import "../variables";
+@import "../mixins";
+
+p-dialog {
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: 0 !important;
+  box-sizing: border-box !important;  box-shadow: none !important;
+}
+
+.p-dialog-header {
+  display: none !important;
+}
+
+.p-dialog-content {
+  box-shadow: none !important;
+  padding: 0 !important;
+  border-radius: 10px !important;
+
+}
+
+.dialog {
+  padding: 100px 70px 0 71px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  .dialog__title {
+    @include head-lora-32;
+    margin-bottom: 40px;
+  }
+
+  .dialog__subtitle, {
+    font-family: $montserrat-regular;
+    font-size: 20px;
+    color: $base-color;
+    margin-bottom: 5px;
+  }
+
+  .dialog__text {
+    font-family: $montserrat-regular;
+    font-size: 20px;
+    color: $base-color;
+
+
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+
+    &:last-child {
+      margin-bottom: 3px;
+    }
+  }
+
+
+  img {
+    min-width: 296px;
+    min-height: 216px;
+    width: 296px;
+    height: 216px;
+  }
+
+
+  .dialog__close {
+    svg {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      transition: all .3s ease;
+
+      &:hover {
+
+        line {
+          fill: $base-color;
+          stroke: $base-color;
+        }
+      }
+
+    }
+  }
+}

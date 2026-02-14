@@ -1,0 +1,76 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/mixins";
+
+.delivery {
+  background: $section-color;
+
+  .delivery-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 102px;
+    padding-right: 0;
+
+    .delivery-content {
+      margin-top: 80px;
+      margin-bottom: 80px;
+      .delivery__title {
+        @include head-lora-32;
+        margin-bottom: 40px;
+      }
+
+
+      .delivery__block {
+        max-width: 442px;
+
+        &.pay {
+          max-width: 423px;
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 35px;
+        }
+
+        .delivery__icon {
+          margin-bottom: 30px;
+        }
+        .delivery__list {
+          .delivery__item {
+            &:not(:last-child) {
+              margin-bottom: 16px;
+            }
+            .delivery__head {
+              font-family: $montserrat-regular;
+              font-size: 16px;
+              color:$black;
+
+              &:not(:last-child) {
+                margin-bottom: 8px;
+              }
+            }
+            .delivery__subtitle {
+              font-family: $montserrat-lightItalic;
+
+              font-size: 16px;
+              line-height: 130%;
+              color: $black;
+            }
+          }
+        }
+        .pay__list{
+          .pay__head{
+            font-family: $montserrat-regular;
+            font-size: 16px;
+            color: $black;
+
+            &:not(:last-child) {
+              margin-bottom: 10px;
+            }
+          }
+        }
+
+      }
+
+    }
+
+  }
+}

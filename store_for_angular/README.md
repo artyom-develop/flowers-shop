@@ -1,27 +1,319 @@
-# StoreForAngular
+# Flowers Shop - Frontend (Angular)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.13.
+[![Angular](https://img.shields.io/badge/Angular-14-red)](https://angular.io/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-4.7-blue)](https://www.typescriptlang.org/)
+[![Material](https://img.shields.io/badge/Material-13-pink)](https://material.angular.io/)
+[![PrimeNG](https://img.shields.io/badge/PrimeNG-14-blue)](https://primeng.org/)
 
-## Development server
+Фронтенд приложение интернет-магазина цветов и комнатных растений. Построен на Angular 14 с использованием Material Design и PrimeNG.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🚀 Быстрый старт
 
-## Code scaffolding
+### Установка зависимостей
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+npm install
+```
 
-## Build
+### Запуск Development сервера
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+npm start
+# или
+ng serve
+```
 
-## Running unit tests
+Приложение будет доступно по адресу: `http://localhost:4200/`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Сборка для продакшн
 
-## Running end-to-end tests
+```bash
+npm run build
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Собранные файлы будут в папке `dist/`
 
-## Further help
+## 📋 Требования
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Node.js >= 14.x
+- npm >= 6.x
+- Angular CLI >= 14.x
+
+## 🏗️ Структура проекта
+
+```
+src/
+├── app/
+│   ├── core/                 # Основные модули (auth, interceptors)
+│   │   ├── auth/            # Аутентификация
+│   │   └── interceptors/    # HTTP interceptors
+│   ├── shared/              # Общие компоненты и сервисы
+│   │   ├── components/      # Переиспользуемые компоненты
+│   │   │   ├── loader/     # Компонент загрузки
+│   │   │   ├── product-card/ # Карточка товара
+│   │   │   ├── pagination/ # Пагинация
+│   │   │   └── ...
+│   │   ├── services/        # Общие сервисы
+│   │   │   ├── loader.service.ts
+│   │   │   ├── cart.service.ts
+│   │   │   ├── product.service.ts
+│   │   │   └── ...
+│   │   ├── directives/      # Директивы
+│   │   ├── pipes/          # Пайпы
+│   │   └── layout/         # Компоненты макета
+│   ├── views/              # Страницы приложения
+│   │   ├── main/          # Главная страница
+│   │   ├── catalog/       # Каталог товаров
+│   │   ├── product/       # Страница товара
+│   │   ├── cart/          # Корзина
+│   │   ├── order/         # Оформление заказа
+│   │   └── personal/      # Личный кабинет
+│   ├── app-routing.module.ts
+│   └── app.module.ts
+├── assets/                 # Статические ресурсы
+│   ├── fonts/
+│   ├── images/
+│   └── styles/
+├── environments/           # Конфигурация окружений
+│   ├── environment.ts     # Development
+│   └── environment.prod.ts # Production
+└── types/                 # TypeScript типы
+    ├── auth/
+    ├── cart/
+    ├── product/
+    └── ...
+```
+
+## 🎨 Используемые библиотеки
+
+### UI Компоненты
+- **Angular Material** (v13) - Material Design компоненты
+- **PrimeNG** (v14) - Rich UI компоненты
+- **ngx-owl-carousel-o** - Карусель изображений
+
+### Утилиты
+- **RxJS** - Реактивное программирование
+- **TypeScript** - Типизация
+
+## ⚙️ Основные возможности
+
+### 🔐 Аутентификация
+- JWT токены
+- Автоматическое обновление токенов
+- Защищённые маршруты
+- Перенаправление на страницу логина
+
+### 📦 HTTP Interceptors
+- **LoaderInterceptor** - Автоматический показ/скрытие лоадера
+- **AuthInterceptor** - Добавление токенов, обработка 401 ошибок
+
+### 🎯 Компоненты
+
+#### Loader Component
+Автоматический индикатор загрузки для всех HTTP запросов:
+- Полноэкранный overlay
+- Анимированный Material Spinner
+- Отслеживание множественных запросов
+- Плавные анимации
+
+#### Product Card
+Карточка товара с:
+- Изображением
+- Названием и ценой
+- Кнопкой "В корзину"
+- Избранное
+
+#### Pagination
+Пагинация с:
+- Настраиваемым количеством элементов
+- Навигацией по страницам
+- Информацией о текущей странице
+
+### 🛒 Основной функционал
+
+- **Каталог товаров** - Просмотр, фильтрация, сортировка
+- **Карточка товара** - Детальная информация, добавление в корзину
+- **Корзина** - Управление товарами, изменение количества
+- **Избранное** - Сохранение любимых товаров
+- **Оформление заказа** - Форма с валидацией
+- **Личный кабинет** - История заказов, профиль
+
+## 🔧 Конфигурация
+
+### Environment файлы
+
+**development** (`environment.ts`):
+```typescript
+export const environment = {
+  production: false,
+  api: "http://localhost:3003/api",
+  serverStaticPath: "http://localhost:3003"
+};
+```
+
+**production** (`environment.prod.ts`):
+```typescript
+export const environment = {
+  production: true,
+  api: "https://api.yourdomain.com/api",
+  serverStaticPath: "https://api.yourdomain.com"
+};
+```
+
+## 📝 Скрипты
+
+```json
+{
+  "start": "ng serve --open",        // Запуск dev сервера
+  "build": "ng build",               // Сборка
+  "watch": "ng build --watch",       // Сборка с отслеживанием
+  "test": "ng test",                 // Запуск тестов
+  "lint": "ng lint"                  // Проверка кода
+}
+```
+
+## 🎨 Стили
+
+Проект использует SCSS для стилизации. Глобальные стили находятся в:
+- `src/assets/styles/` - Основные стили
+- Компонентные стили - В папках компонентов
+
+### Цветовая схема
+Настраивается через Angular Material theming и переменные SCSS.
+
+## 🔄 Состояние (State Management)
+
+Управление состоянием через:
+- **Services** - Для простых состояний (Cart, Favorites)
+- **RxJS Subjects/BehaviorSubjects** - Для реактивности
+- **Local Storage** - Для персистентности данных
+
+## 🌐 API Интеграция
+
+Все HTTP запросы проходят через сервисы в `shared/services/`:
+
+```typescript
+// Пример использования
+this.productService.getProducts(params).subscribe({
+  next: (products) => {
+    // Обработка данных
+  },
+  error: (error) => {
+    // Обработка ошибки
+  }
+});
+```
+
+## 🧪 Тестирование
+
+```bash
+# Запуск юнит-тестов
+npm test
+
+# Запуск с coverage
+ng test --code-coverage
+```
+
+## 📱 Адаптивность
+
+Приложение полностью адаптивно и поддерживает:
+- Desktop (1920px+)
+- Laptop (1366px+)
+- Tablet (768px+)
+- Mobile (320px+)
+
+## 🚀 Деплой
+
+### Build для продакшн
+
+```bash
+ng build --configuration production
+```
+
+### Настройка для деплоя
+
+1. Обновите `environment.prod.ts` с production URL
+2. Соберите проект
+3. Загрузите содержимое `dist/` на сервер
+4. Настройте nginx/apache для SPA
+
+## 🐛 Отладка
+
+### Включить Source Maps в production
+
+```bash
+ng build --source-map
+```
+
+### Логирование
+
+В development режиме доступны console.log для отладки.
+
+## 📚 Документация
+
+- [Angular Documentation](https://angular.io/docs)
+- [Material Design](https://material.angular.io/)
+- [PrimeNG](https://primeng.org/)
+- [RxJS](https://rxjs.dev/)
+- [Loader System](LOADER_SYSTEM.md) - Система автоматических лоадеров
+
+## 🔗 Связанные проекты
+
+- [Backend API](../store_backend/README.md) - Node.js + Express + MongoDB
+
+## 📄 Лицензия
+
+MIT
+
+## 👥 Разработка
+
+### Соглашения о коде
+
+- Используйте TypeScript строгую типизацию
+- Следуйте Angular Style Guide
+- Используйте reactive forms
+- Компоненты должны быть маленькими и переиспользуемыми
+
+### Git Workflow
+
+```bash
+# Создание ветки для новой функции
+git checkout -b feature/new-feature
+
+# Коммит изменений
+git add .
+git commit -m "feat: описание изменений"
+
+# Push
+git push origin feature/new-feature
+```
+
+## 🆘 Troubleshooting
+
+### Проблемы с установкой
+
+```bash
+# Очистка кэша
+npm cache clean --force
+
+# Удаление node_modules
+rm -rf node_modules package-lock.json
+
+# Переустановка
+npm install
+```
+
+### Проблемы с портом
+
+Если порт 4200 занят:
+```bash
+ng serve --port 4201
+```
+
+### Проблемы с CORS
+
+Убедитесь, что backend разрешает запросы с `http://localhost:4200`
+
+## 📞 Поддержка
+
+При возникновении проблем создайте issue в репозитории проекта.
